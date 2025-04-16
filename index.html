@@ -29,6 +29,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
 
   <style>
@@ -56,6 +57,16 @@
         width: 500px;
     }
 
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    .markdown {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: #f9f9f9;
+    }
+  
   </style>
 
 
@@ -206,6 +217,40 @@
         </div>
       </div>
     </div>
+
+
+    <div class="markdown" id="markdown-output"></div>
+
+    <script>
+      // Markdown string
+      const markdownContent = `
+  # Hello Markdown!
+  
+  This is a **bold** word, this is *italic*, and here's a list:
+  
+  - Item 1
+  - Item 2
+  - Item 3
+  
+  <img src="IMAGE.PNG" alt="TEST"  width="800" />
+  
+  
+  You can also write \`inline code\` or:
+  
+  \`\`\`js
+  console.log("Code block!");
+  \`\`\`
+      `;
+  
+      // Render the Markdown as HTML
+      const htmlContent = marked.parse(markdownContent);
+  
+      // Insert it into the page
+      document.getElementById("markdown-output").innerHTML = htmlContent;
+    </script>
+  
+
+
 
     <br>
     <br>
